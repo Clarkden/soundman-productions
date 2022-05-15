@@ -159,6 +159,7 @@ export default function dashboard({ admins }) {
                                             <div className='min-w-full max-w-full min-h-full h-full flex flex-col'>
                                                 <div className='bg-gray-200 dark:bg-gray-800 rounded-t-lg p-1 h-fit text-black dark:text-white flex flex-row flex-nowrap justify-between items-baseline px-2    '>
                                                     <h1 className='' >{data.title}</h1>
+                                                    <FontAwesomeIcon icon={faDownload} className="text-orange-500"/>
                                                     <div className='flex flex-row items-baseline gap-3'>
                                                     <Link href={data.productionSound}><span><FontAwesomeIcon icon={faDownload} className="text-orange-500"/></span></Link>
                                                     
