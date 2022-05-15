@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
+import { faDownload, faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
 
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
@@ -20,15 +20,13 @@ export default class playSound extends Component {
 
     setSound = (source) => {
 
-        if(!this.props.soundPlaying)
-        {
-            this.setState({displayPlayButton: false})
+        if (!this.props.soundPlaying) {
+            this.setState({ displayPlayButton: false })
             // this.props.passedFunction(true)
             this.props.audio(source, this.props.id)
         }
-        else
-        {
-            this.setState({displayPlayButton: true})
+        else {
+            this.setState({ displayPlayButton: true })
             this.props.changeState(true)
             this.props.passedFunction(false)
             //this.props.audio(source, this.id)
@@ -37,10 +35,16 @@ export default class playSound extends Component {
 
     render() {
         return (
-            <div>
-                <a onClick={() => {this.setSound(this.audio.source);} } className="hover:cursor-pointer">
-                    {this.state.displayPlayButton ?  <FontAwesomeIcon icon={faPlay} size="lg" className='text-green-300' /> : <FontAwesomeIcon icon={faStop} size="lg" className='text-red-300' /> }
-                </a>
+            <div className='w-full flex justify-between items-center p-1 px-3'>
+                <div>
+                    <a onClick={() => { this.setSound(this.audio.source); }} className="hover:cursor-pointer">
+                        {this.state.displayPlayButton ? <FontAwesomeIcon icon={faPlay} size="lg" className='text-green-300' /> : <FontAwesomeIcon icon={faStop} size="lg" className='text-red-300' />}
+                    </a>
+                </div>
+                <div>
+                    <a href={this.props.audioSource}><FontAwesomeIcon icon={faDownload} size="lg" className="hover:cursor-pointer"/></a>
+                </div>
+
                 {/* {!this.state.displayPlayButton ? <AudioPlayer
                     className='rounded-t-lg fixed bottom-0 left-0'
                     src={'https://docs.google.com/uc?export=download&id=184FHIt9zcGgY-62FNvVEIvhmqLrxxrrf'}

@@ -18,7 +18,7 @@ export default function SignIn({ providers }) {
                 {Object.values(providers).map((provider) => (
                     <div key={provider.name} className="min-w-full">
                         <button className="text-gray-800 bg-slate-400 p-2 rounded-lg w-full mx-auto" onClick={() => signIn(provider.id, {
-                            callbackUrl: '/dashboard'
+                            callbackUrl: '/'
                         })}>Sign in with {provider.name} {
                                 {
                                     'GitHub': <FontAwesomeIcon icon={faGithub} />,

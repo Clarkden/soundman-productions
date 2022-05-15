@@ -10,6 +10,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import axios from 'axios'
 
 import { withRouter } from 'next/router'
+import { signIn } from 'next-auth/react'
 
 class playSound extends Component {
 
@@ -61,14 +62,15 @@ class playSound extends Component {
         await axios.post('/api/create-stripe-session', {
             item: this.product,
         }).then((response) => {
+            console.log(response)
             stripe.redirectToCheckout({
                 sessionId: response.data.id,
             });
         })
         .catch((error) => { 
-            
             if (error.response) {
-                this.props.router.push("/dashboard")
+                signIn()
+                //this.props.router.push("/dashboard")
                 // console.log(error.response.data.message)
         }  else if (error.request) {
             // The request was made but no response was received
@@ -92,7 +94,7 @@ class playSound extends Component {
                 <div className='flex gap-2 items-baseline  rounded-lg px-2 justify-between drop-shadow-lg border-2 border-black/25 dark:border-white/25 p-2'>
                     <div><h1 className=''>{this.props.product.title}</h1></div>
                     <div className='flex gap-2'>
-                        <button onClick={() => {this.createCheckOutSession;}} className='text-gray-500 dark:text-red/75'><FontAwesomeIcon icon={faShoppingBag} className="text-green-500 dark:text-green-300  hover:scale-125 transition" /></button>
+                        <button onClick={() => {this.createCheckOutSession(); }} className='text-gray-500 dark:text-red/75'><FontAwesomeIcon icon={faShoppingBag} className="text-green-500 dark:text-green-300  hover:scale-125 transition" /></button>
                         <a onClick={() => { this.setSound(this.audio.source); }} className="hover:cursor-pointer">
                             {this.state.displayPlayButton ? <FontAwesomeIcon icon={faPlayCircle} size="lg" className='text-red-500 hover:scale-125 transition' /> : <FontAwesomeIcon icon={faStopCircle} size="lg" className='text-yellow-500 hover:scale-125 transition' />}
                         </a>
