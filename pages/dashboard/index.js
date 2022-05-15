@@ -7,13 +7,14 @@ import SoundButton from '../../components/playSound'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
-
 import { useSession, signIn, signOut } from "next-auth/react"
 import clientPromise from '../../lib/mongodb'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
+
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
 
 export default function dashboard({ admins }) {
 
@@ -160,7 +161,7 @@ export default function dashboard({ admins }) {
                                                 <div className='bg-gray-200 dark:bg-gray-800 rounded-t-lg p-1 h-fit text-black dark:text-white flex flex-row flex-nowrap justify-between items-baseline px-2    '>
                                                     <h1 className='' >{data.title}</h1>
                                                     <div className='flex flex-row items-baseline gap-3'>
-                                                    <a href={data.productionSound} ><FontAwesomeIcon icon={faDownload} className="text-orange-500" size="md"/>download</a>
+                                                    <a href={data.productionSound} ><FontAwesomeIcon icon={faDownload} className="text-orange-500" size="md"/></a>
                                                     
                                                     <SoundButton passedFunction={() => setPlayingSound(!PlayingSound)} soundPlaying={PlayingSound} changeState={changeState} addObject={addObject} audio={audio} id={data.title} audioSource={data.productionSound} />
                                                     </div>
