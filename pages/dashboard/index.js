@@ -160,7 +160,7 @@ export default function dashboard({ admins }) {
                                                 <div className='bg-gray-200 dark:bg-gray-800 rounded-t-lg p-1 h-fit text-black dark:text-white flex flex-row flex-nowrap justify-between items-baseline px-2    '>
                                                     <h1 className='' >{data.title}</h1>
                                                     <div className='flex flex-row items-baseline gap-3'>
-                                                    <Link href={data.productionSound}><FontAwesomeIcon icon={faDownload} className="text-orange-500" size="md"/></Link>
+                                                    <a href={data.productionSound} ><FontAwesomeIcon icon={faDownload} className="text-orange-500" size="md"/></a>
                                                     
                                                     <SoundButton passedFunction={() => setPlayingSound(!PlayingSound)} soundPlaying={PlayingSound} changeState={changeState} addObject={addObject} audio={audio} id={data.title} audioSource={data.productionSound} />
                                                     </div>
