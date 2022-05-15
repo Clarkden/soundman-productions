@@ -14,11 +14,13 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
+import { Router, useRouter } from 'next/router'
 config.autoAddCss = false
 
 export default function dashboard({ admins }) {
 
     const { data: session } = useSession()
+    const router = useRouter()
 
     //Load audio controllers
     const [playControllers, setPlayControllers] = useState([])
@@ -53,15 +55,21 @@ export default function dashboard({ admins }) {
                     .then(res => res.json())
                     .then(
                         (result) => {
-                            if (result.status === 200) {
-                                setIsLoaded(true)
-                                setSongs(result.message.songs)
+                            if (result != undefined) {
+                                if (result.status === 200) {
+                                    setIsLoaded(true)
+                                    setSongs(result.message.songs)
+                                }
+
+                                else if (result.message === "User not found") {
+                                    setNoSongs(true)
+
+                                }
+                                setTimeout(() => { setLoadingError(true); }, [100])
 
                             }
-
-                            else if (result.message === "User not found") {
+                            else {
                                 setNoSongs(true)
-                                // setTimeout(() => {setLoadingError(true);}, [100])
                             }
                         },
                         (error) => {
@@ -161,9 +169,9 @@ export default function dashboard({ admins }) {
                                                 <div className='bg-gray-200 dark:bg-gray-800 rounded-t-lg p-1 h-fit text-black dark:text-white flex flex-row flex-nowrap justify-between items-baseline px-2    '>
                                                     <h1 className='' >{data.title}</h1>
                                                     <div className='flex flex-row items-baseline gap-3'>
-                                                    <a href={data.productionSound} ><FontAwesomeIcon icon={faDownload} className="text-gray-400" size="md"/></a>
-                                                    
-                                                    <SoundButton passedFunction={() => setPlayingSound(!PlayingSound)} soundPlaying={PlayingSound} changeState={changeState} addObject={addObject} audio={audio} id={data.title} audioSource={data.productionSound} />
+                                                        <a href={data.productionSound} ><FontAwesomeIcon icon={faDownload} className="text-gray-400" size="sm" /></a>
+
+                                                        <SoundButton passedFunction={() => setPlayingSound(!PlayingSound)} soundPlaying={PlayingSound} changeState={changeState} addObject={addObject} audio={audio} id={data.title} audioSource={data.productionSound} />
                                                     </div>
                                                 </div>
                                                 <div className='h-full flex items-center justify-center'>
@@ -190,11 +198,11 @@ export default function dashboard({ admins }) {
                 /> : null} */}
                     </div>
                 </div> :
-                <div className='flex justify-center items-center h-screen w-screen'>
-                    <div className='border-2 border-neutral-800 h-3/6 w-3/6 rounded-lg p-3 flex flex-col justify-center items-center gap-4'>
-                        <h1 className='font-bold'>You must sign in</h1>
-                        <button onClick={() => signIn()} className="bg-green-400 rounded-lg p-2 w-4/5">Sign in</button>
-                        <Link href="/"><span className="bg-blue-400 rounded-lg p-2 w-4/5 flex justify-center cursor-pointer">Home</span></Link>
+                <div className='flex justify-center items-center h-screen w-screen bg-gradient-to-r from-purple-500 to-pink-500'>
+                    <div className='border-2 border-white drop-shadow-lg h-fit w-fit rounded-lg p-3 flex flex-col justify-center items-center gap-4'>
+                        <h1 className='font-bold text-white'>You must sign in</h1>
+                        <button onClick={() => router.push('/signin')} className="bg-green-400 rounded-lg p-2 w-64">Sign in</button>
+                        <Link href="/"><span className="bg-blue-400 rounded-lg p-2 w-64 flex justify-center cursor-pointer">Back to shop</span></Link>
                     </div>
                 </div>
 

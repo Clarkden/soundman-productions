@@ -20,24 +20,29 @@ export default async function handler(req, res) {
             res.status(200).json(addsong);
         }
         else if (req.method === "GET") {
-            const user = await db.collection('purchasers').find({ name: req.query.name }).toArray()
-            if (user.length > 0) {
-                if (user[0].songs.length > 0) {
-                    let songs = []
-                    for (let x = 0; x < user[0].songs.length; x++) {
-                        const song = await db.collection('songs').findOne({ _id: ObjectId(`${user[0].songs[x]}`) })
-                        songs.push(song)
+            const user = await db.collection('purchasers').findOne({ name: req.query.name })
+            if (user) {
+                if (user.songs) {
+                    if (user.songs.length > 0) {
+                        let songs = []
+                        for (let x = 0; x < user.songs.length; x++) {
+                            const song = await db.collection('songs').findOne({ _id: ObjectId(`${user.songs[x]}`) })
+                            songs.push(song)
+                        }
+                        res.status(200).json({ status: 200, message: { songs: songs } })
                     }
-                    res.status(200).json({ status: 200, message: { songs: songs } })
+                    else
+                        res.status(201).json({ status: 201, message: { songs: "No songs found" } })
                 }
                 else
-                    res.status(404).json({ status: 201, message: { songs: "No songs found" } })
+                    res.status(201).json({ status: 201, message: { songs: "No songs found" } })
             }
             else
                 res.status(404).json({ status: 201, message: "User not found" })
-
         }
+
     }
+
     else
-        res.status(401).json({message: "Not signed in"})
+        res.status(401).json({ message: "Not signed in" })
 }
