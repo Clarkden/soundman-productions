@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPauseCircle, faPlay, faPlayCircle, faShoppingBag, faStop, faStopCircle } from '@fortawesome/free-solid-svg-icons'
-import { data } from 'autoprefixer'
+
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
 
 import { loadStripe } from '@stripe/stripe-js'
 import axios from 'axios'
