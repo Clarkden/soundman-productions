@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faGoogle, faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { useRouter } from "next/router"
 
-
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+config.autoAddCss = false
 
 export default function SignIn({ providers }) {
     const router = useRouter()
