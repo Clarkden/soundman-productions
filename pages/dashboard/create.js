@@ -25,12 +25,12 @@ export default function createSound({ admins }) {
           <Sidebar admin={admin} />
           <div className='flex justify-center items-center mx-auto'>
             <form method="post" action="/api/products" className='flex flex-col gap-5  w-full justify-center items-center'>
-              <input type="text" id="title" name="title" placeholder='Title' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900' required></input>
-              <input type="text" id="description" name="description" placeholder='Description' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900' required></input>
-              <input type="text" id="image" name="image" placeholder='Image' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900' required></input>
-              <input type="text" id="previewSound" name="previewSound" placeholder='Preview Sound' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900' required></input>
-              <input type="text" id="productionSound" name="productionSound" placeholder='Production Sound' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900' required></input>
-              <input type="text" id="price" name="price" placeholder='Price' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900' required></input>
+              <input type="text" id="title" name="title" placeholder='Title' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
+              <input type="text" id="description" name="description" placeholder='Description' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
+              <input type="text" id="image" name="image" placeholder='Image' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
+              <input type="text" id="previewSound" name="previewSound" placeholder='Preview Sound' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
+              <input type="text" id="productionSound" name="productionSound" placeholder='Production Sound' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
+              <input type="text" id="price" name="price" placeholder='Price' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
               <button className='bg-green-400 rounded-lg p-2 w-72'>Create Product</button>
             </form>
           </div>
