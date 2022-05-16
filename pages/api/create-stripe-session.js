@@ -3,9 +3,9 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 async function CreateStripeSession(req, res) {
 
-  const session = await getSession({ req })
+  const activeSession = await getSession({ req })
 
-  if (session) {
+  if (activeSession) {
 
     const { item } = req.body;
 
@@ -36,8 +36,9 @@ async function CreateStripeSession(req, res) {
       metadata: {
         images: item.image,
       },
+      client_reference_id: activeSession.user.email
     });
-
+    
     res.json({ id: session.id });
   }
   else

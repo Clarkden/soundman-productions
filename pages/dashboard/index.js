@@ -22,6 +22,7 @@ export default function dashboard({ admins }) {
     const { data: session } = useSession()
     const router = useRouter()
 
+
     //Load audio controllers
     const [playControllers, setPlayControllers] = useState([])
     var playControllersList = ([])
@@ -156,7 +157,7 @@ export default function dashboard({ admins }) {
     return (
         <div className='w-full h-full'>
             {session ?
-                <div>
+            <div>
                     <div className='flex'>
                         <Sidebar admin={admin} />
                         <section className=' text-black dark:text-white w-full dark:bg-neutral-900 relative top-0'>
