@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { useSession, signIn, signOut } from "next-auth/react"
 import clientPromise from '../../lib/mongodb'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faDownload, faMusic } from '@fortawesome/free-solid-svg-icons'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -159,11 +159,12 @@ export default function dashboard({ admins }) {
                 <div>
                     <div className='flex'>
                         <Sidebar admin={admin} />
-                        <section className=' text-black dark:text-white w-full dark:bg-blue-100 relative top-0'>
-                            <div className='p-10 w-full flex flex-row flex-wrap'>
+                        <section className=' text-black dark:text-white w-full dark:bg-neutral-900 relative top-0'>
+                            <div className='px-5 w-full flex flex-row flex-wrap mt-10'>
+                            
                                 {!noSongs ?
-                                    <div className='rounded-lg dark: bg-black/50 p-5 w-11/12 mx-auto'>
-                                        <h1 className='font-bold text-lg mb-5 text-gray-200'>Your Songs</h1>
+                                    <div className='rounded-lg bg-gray-100 dark:bg-gray-800 p-5 w-11/12 mx-auto'>
+                                        <h1 className='font-bold text-lg mb-5 dark:text-white'>Your Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic}/></span> </h1>
                                         <div className='flex flex-row flex-wrap gap-8'>
                                             {isLoaded && songs ? songs?.map((data) => (
 
@@ -174,7 +175,7 @@ export default function dashboard({ admins }) {
                                                     <div className='w-44 h-44 min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
                                                         <img src={data.image} className='rounded-md min-w-full'></img>
                                                     </div>
-                                                    <div className='flex flex-row justify-between border-2 border-white/25 rounded-lg w-44'>
+                                                    <div className='flex flex-row justify-between border-2 border-black/25 dark:border-white/25 rounded-lg w-44'>
                                                         <SoundButton passedFunction={() => setPlayingSound(!PlayingSound)} soundPlaying={PlayingSound} changeState={changeState} addObject={addObject} audio={audio} id={data.title} audioSource={data.productionSound} />
                                                     </div>
                                                 </div>

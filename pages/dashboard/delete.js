@@ -6,12 +6,12 @@ import clientPromise from '../../lib/mongodb'
 import Sidebar from '../../components/sidebar'
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXbox } from '@fortawesome/free-brands-svg-icons'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
-import { faDeleteLeft, faX } from '@fortawesome/free-solid-svg-icons'
+import { faDeleteLeft, faMusic, faX } from '@fortawesome/free-solid-svg-icons'
 config.autoAddCss = false
+
 
 
 export default function createSound({ admins }) {
@@ -68,22 +68,27 @@ export default function createSound({ admins }) {
             <>
                 {session && admin ? <div className='w-screen h-screen flex flex-row dark:bg-black'>
                     <Sidebar admin={admin} />
-                    <div className='flex w-full justify-start items-start mx-auto p-5 gap-5'>
-                        {songs ? songs?.map((data) => (
-                            <div key={data._id} className='bg-gray-100 dark:bg-gray-500 w-dasbhoard-card min-w-dashboard-card h-dasbhoard-card min-h-dasbhoard-card rounded-lg'>
-                                <div className='min-w-full max-w-full min-h-full h-full flex flex-col'>
-                                    <div className='bg-gray-200 dark:bg-gray-800 rounded-t-lg p-1 h-fit text-black dark:text-white flex flex-row flex-nowrap justify-between items-baseline px-2    '>
-                                        <h1 className='' >{data.title}</h1>
-                                        <div className='flex flex-row items-baseline gap-3'>
-                                            <button onClick={() => {fetch(`/api/products/delete/${data._id}`); window.location.reload()}}><FontAwesomeIcon icon={faX} className="text-red-500 cursor-pointer" /></button>
-                                        </div>
-                                    </div>
-                                    <div className='h-full flex items-center justify-center'>
-                                        <img src={data.image} className='rounded-lg w-8/12'></img>
-                                    </div>
+                    <div className='w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100'>
+                        {/* <div className='flex flex-row gap-4 p-4 rounded-lg  dark:bg-gray-800 w-11/12 mx-auto'> */}
+                        <h1 className='font-bold text-lg mb-5 dark:text-white'>All Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
+                        <div className='flex flex-row gap-5'>
+                            {songs ? songs?.map((data) => (
+                                <div>
+                                    <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg max-w-cards' key={data._id}>
+                                                    <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-44 mb-3'>
+                                                        <h1 className='text-center'>{data.title}</h1>
+                                                    </div>
+                                                    <div className='w-44 h-44 min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
+                                                        <img src={data.image} className='rounded-md min-w-full'></img>
+                                                    </div>
+                                                    <div className='flex flex-row justify-between border-2 border-black/25 dark:border-white/25 rounded-lg w-44'>
+                                                    <button onClick={() => { fetch(`/api/products/delete/${data._id}`); window.location.reload() }} className="bg-red-400 w-44 rounded-md">Delete</button>
+                                                    </div>
+                                                </div>
                                 </div>
-                            </div>
-                        )) : null}
+
+                            )) : <a href="/dashboard/create" className=''>Create a product</a>}
+                        </div>
                     </div>
                 </div> : <h1>You are not permitted.</h1>}
             </>

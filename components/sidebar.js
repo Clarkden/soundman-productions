@@ -13,10 +13,14 @@ export default function sidebar({ admin }) {
 
 
         return (
-            <div className='h-screen min-h-full'>
-                <aside className="w-48 h-full min-h-full" aria-label="Sidebar">
-                    <div className="overflow-y-auto py-4 px-3 bg-gray-50 dark:bg-gray-800 min-h-full rounded-r-lg flex justify-center">
+            <div className='h-screen min-h-full sticky flex bg-white dark:bg-neutral-900'>
+                <aside className="w-48 h-5/6 ml-7 my-3 mt-10" aria-label="Sidebar">
+                    <div className="overflow-y-auto py-4 px-3 bg-gray-100 dark:bg-gray-800 min-h-full rounded-lg pt-10">
                         <ul className="space-y-2">
+                            {/* <a href="/" className="flex justify-start flex-wrap">
+                                <img src="img/headphones.png" className="mr-3 h-6" alt="Sandman Productions Logo" />
+                                <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Sandman Productions</span>
+                            </a> */}
                             <li>
                                 <a href="/dashboard" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                     <svg className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
