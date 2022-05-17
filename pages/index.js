@@ -164,7 +164,7 @@ export default function Home({ }) {
         <section id="main" className='w-full h-fit'>
           <div id="popular" className=' text-black dark:text-white my-10'>
             {/* <h1 className='text-2xl mb-5 font-bold'>Popular Tracks</h1> */}
-            <div id="popular-cards" className='flex flex-row flex-wrap gap-10 overflow-scroll py-5 justify-around md:justify-start'>
+            <div id="popular-cards" className='flex flex-row flex-wrap gap-4 overflow-scroll py-5 justify-around md:justify-start'>
               {isLoaded ? songs?.map((data) => (
                 // border-2 border-gray-300 dark:border-gray-700
                 <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg ' key={data._id}>
