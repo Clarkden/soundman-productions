@@ -5,7 +5,7 @@ async function CreateStripeSession(req, res) {
 
   const activeSession = await getSession({ req })
 
-  // if (activeSession) {
+  if (activeSession) {
 
     const { item } = req.body;
 
@@ -36,13 +36,13 @@ async function CreateStripeSession(req, res) {
       metadata: {
         images: item.image,
       },
-      // client_reference_id: activeSession.user.email
+      client_reference_id: activeSession.user.email
     });
     
     res.json({ id: session.id });
-  // }
-  // else
-  //   res.status(401).json({message: "Not signed in"})
+  }
+  else
+    res.status(401).json({message: "Not signed in"})
 }
 
 export default CreateStripeSession;
