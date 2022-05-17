@@ -40,11 +40,11 @@ export default class playSound extends Component {
             <div className='w-full flex justify-between items-center p-1 px-3'>
                 <div>
                     <a onClick={() => { this.setSound(this.audio.source); }} className="hover:cursor-pointer">
-                        {this.state.displayPlayButton ? <FontAwesomeIcon icon={faPlay} size="lg" className='text-green-300' /> : <FontAwesomeIcon icon={faStop} size="lg" className='text-red-300' />}
+                        {this.state.displayPlayButton ? <FontAwesomeIcon icon={faPlay} size="lg" className='text-green-300 transition' /> : <FontAwesomeIcon icon={faStop} size="lg" className='text-red-300 transition' />}
                     </a>
                 </div>
                 <div>
-                    <a href={this.props.audioSource}><FontAwesomeIcon icon={faDownload} size="lg" className="hover:cursor-pointer"/></a>
+                    <a href={this.props.audioSource}><FontAwesomeIcon icon={faDownload} size="lg" className="hover:cursor-pointer active:text-red-300 transition"/></a>
                 </div>
 
                 {/* {!this.state.displayPlayButton ? <AudioPlayer

@@ -20,6 +20,7 @@ export default function createSound({ admins }) {
     const [orders, setOrders] = useState([])
     const [admin, setAdmin] = useState(false)
     const [loadingError, setLoadingError] = useState(0)
+    const [totalSales, setTotalSales] = useState(0)
 
     useEffect(() => {
 
@@ -32,6 +33,12 @@ export default function createSound({ admins }) {
                     .then(
                         (result) => {
                             setOrders(result)
+
+                            let total = 0
+                            for (var x = 0; x < result.length; x++) {
+                                total += result[x].amount_total / 100
+                            }
+                            setTotalSales(Math.round(total * 100) / 100)
                         },
                         (error) => {
                             setLoadingError(loadingError++)
@@ -66,16 +73,25 @@ export default function createSound({ admins }) {
 
         return (
             <>
-                {session && admin ? <div className='w-screen h-screen flex flex-row dark:bg-neutral-900'>
+                {session && admin ? <div className='w-screen h-fit min-h-screen flex flex-row dark:bg-neutral-900 pb-20'>
                     <Sidebar admin={admin} />
                     <div className='w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100 dark:bg-gray-800 dark:text-white'>
-                        <h1 className='font-bold text-lg mb-5 dark:text-white'>All Orders <span className='text-green-500'><FontAwesomeIcon icon={faDollar} /></span> </h1>
+                        <div className='flex justify-between'>
+                         <h1 className='text-lg mb-5 dark:text-white'>All Orders <span className='text-green-500'><FontAwesomeIcon icon={faDollar} /></span></h1>
+                        <h1 className='text-green-400'>${totalSales}</h1>   
+                        </div>
+                        
                         {/* <div className='flex flex-row flex-wrap gap-5'> */}
+                        <div className='flex flex-row justify-around'>
+                            <h1>Name</h1>
+                            <h1>Email</h1>
+                            <h1>Amount</h1>
+                        </div>
                         {orders ? orders?.map((data) => (
                             <div className='rounded-lg  p-2 flex flex-row gap-5 justify-around drop-shadow-lg border-2 border-slate-400 my-3' key={data._id}>
                                 <h1>{data.metadata.name}</h1>
                                 <h1>{data.metadata.email}</h1>
-                                <h1 className='text-green-400'>${data.amount_total/100}</h1>
+                                <h1 className='text-green-400'>${data.amount_total / 100}</h1>
                             </div>
 
 
