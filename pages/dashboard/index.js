@@ -183,8 +183,8 @@ export default function dashboard({ admins }) {
                                             {isLoaded && songs ? songs?.map((data) => (
 
                                                 <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg max-w-cards' key={data._id}>
-                                                    <div className=''>
-                                                        <h1 className='text-center'>{data.title}</h1>
+                                                    <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-small-cards md:min-w-cards mb-3'>
+                                                        <h1 className='text-sm md:text-base text-center'>{data.title}</h1>
                                                     </div>
                                                     <div className='w-small-cards md:min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
                                                         <img src={data.image} className='rounded-md min-w-full'></img>
