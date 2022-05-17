@@ -39,6 +39,16 @@ const handler = async (req, res) => {
             const db = client.db("soundmanproductions");
             await db.collection('orders').insertOne(session);
 
+
+            var query = {
+                name: session.metadata.name,
+                songs: {$addToSet :{$: session.metadata.sound}}
+            },
+            update = { expire: new Date() },
+            options = { upsert: true, new: true, setDefaultsOnInsert: true };
+
+            await db.collection('purchasers').findOneAndUpdate(query, update, options)
+
             res.json({ received: true });
         } else {
             res.setHeader("Allow", "POST");

@@ -26,6 +26,7 @@ class playSound extends Component {
             source: this.props.product.previewSound
         }
         this.product = {
+            id: this.props.product._id,
             name: this.props.product.title,
             description: this.props.product.description,
             image: this.props.product.image,
