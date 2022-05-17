@@ -41,7 +41,7 @@ const handler = async (req, res) => {
 
             const purchaser = await db.collection('purchasers').findOne({name: session.metadata.name})
             if(purchaser){
-                purchaser.update({songs: {$addToSet :{song: session.metadata.sound}}})
+                await db.collection('purchasers').update({name:session.metadata.name,}, { songs: {$addToSet :{song: session.metadata.sound}}})
             }else{
                 await db.collection('purchasers').insertOne({name: session.metadata.name, songs: {song: session.metadata.sound}})
             }
