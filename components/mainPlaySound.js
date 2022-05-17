@@ -52,7 +52,7 @@ class playSound extends Component {
         }
         else {
             this.setState({ displayPlayButton: true })
-            this.props.changeState(true)
+            // this.props.changeState(true)
             this.props.passedFunction(false)
             //this.props.audio(source, this.id)
         }

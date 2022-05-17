@@ -23,12 +23,14 @@ export default class playSound extends Component {
         if (!this.props.soundPlaying) {
             this.setState({ displayPlayButton: false })
             // this.props.passedFunction(true)
+            //this.props.changeState(false)
             this.props.audio(source, this.props.id)
         }
         else {
             this.setState({ displayPlayButton: true })
-            this.props.changeState(true)
+            // this.props.changeState(true)
             this.props.passedFunction(false)
+            // this.props.changeState(true)
             //this.props.audio(source, this.id)
         }
     }

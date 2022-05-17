@@ -39,9 +39,9 @@ export default function Home({ }) {
 
   //Loading Audio Controllers
   const [controllersError, setControllersError] = useState(null)
-  
-  const router = useRouter()  
-  const {status} = router.query
+
+  const router = useRouter()
+  const { status } = router.query
 
   useEffect(() => {
     async function fetchSongs() {
@@ -80,6 +80,7 @@ export default function Home({ }) {
 
   const addObject = (object) => {
     playControllersList.push(object)
+    setPlayControllers(playControllersList)
   }
 
   //Set state of all audio controller buttons
@@ -103,14 +104,14 @@ export default function Home({ }) {
 
   //Get all states of playbuttons to be able to set them 
 
-  useEffect(() => {
-    if (playControllersList.length == 0) {
-      setControllersError(true)
-    }
-    else
-      setPlayControllers(playControllersList)
+  // useEffect(() => {
+  //   if (playControllersList.length == 0) {
+  //     setControllersError(true)
+  //   }
+  //   else
+  //     setPlayControllers(playControllersList)
 
-  }, [controllersError])
+  // }, [controllersError])
 
 
   //Check if a sound has been loaded to play and if it has, play it
@@ -122,12 +123,17 @@ export default function Home({ }) {
       } else {
         sound.pause()
         setSound(null)
+        let currentControllers = playControllers
+        for (var x = 0; x < currentControllers.length; x++) {
+          currentControllers[x].state.displayPlayButton = true
+        }
+        setPlayControllers(currentControllers)
       }
     }
 
   }, [PlayingSound])
 
-  
+
   return (
     <div className='h-fit bg-gray-100 dark:bg-slate-900'>
       <Head>
@@ -137,13 +143,13 @@ export default function Home({ }) {
       <Navbar />
       <div className='w-4/5 mx-auto mt-10'>
         {/* <div className='fixed w-52 h-20'><h1>Check out cancled {status}</h1></div> */}
-        {status ?  
-                                {
-                                    'success': <div className='w-5/6 h-16 border-2 border-green-400 bg-green-400/25 rounded-lg flex justify-center items-center mx-auto relative'><div className='absolute top-1 left-2 hover:cursor-pointer text-red-400' onClick={() => router.push('/')}><FontAwesomeIcon icon={faClose} size="lg" className='text-red'/></div><h1 className='text-slate-600 dark:text-slate-200 font-bold ' >Check out completed <span className='underline text-slate-400'><Link href="/dashboard">Access dashboard</Link></span></h1></div> ,
-                                    'cancel': <div className='w-5/6 h-16 border-2 border-red-400 bg-red-400/25 rounded-lg flex justify-center items-center mx-auto relative'><div className='absolute top-1 left-2 hover:cursor-pointer text-red-400' onClick={() => router.push('/')}><FontAwesomeIcon icon={faClose} size="lg" className='text-red'/></div><h1 className='text-slate-600 dark:text-slate-200 font-bold '>Check out canceled</h1></div> ,
+        {status ?
+          {
+            'success': <div className='w-5/6 h-16 border-2 border-green-400 bg-green-400/25 rounded-lg flex justify-center items-center mx-auto relative'><div className='absolute top-1 left-2 hover:cursor-pointer text-red-400' onClick={() => router.push('/')}><FontAwesomeIcon icon={faClose} size="lg" className='text-red' /></div><h1 className='text-slate-600 dark:text-slate-200 font-bold ' >Check out completed <span className='underline text-slate-400'><Link href="/dashboard">Access dashboard</Link></span></h1></div>,
+            'cancel': <div className='w-5/6 h-16 border-2 border-red-400 bg-red-400/25 rounded-lg flex justify-center items-center mx-auto relative'><div className='absolute top-1 left-2 hover:cursor-pointer text-red-400' onClick={() => router.push('/')}><FontAwesomeIcon icon={faClose} size="lg" className='text-red' /></div><h1 className='text-slate-600 dark:text-slate-200 font-bold '>Check out canceled</h1></div>,
 
-                                }[status]
-                            : null}
+          }[status]
+          : null}
         <div className='flex flex-row min-w-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg items-center justify-between my-5 p-10'>
           <div className='flex flex-col justify-start'>
             <h1 className='justify-self-end text-white text-4xl'>Find the perfect beat for you</h1>
