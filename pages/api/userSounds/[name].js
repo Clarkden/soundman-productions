@@ -16,20 +16,21 @@ export default async function handler(req, res) {
         const db = client.db("soundmanproductions");
 
         if (req.method === "POST") {
-            const addsong = await db.collection('purchasers').update({ name: req.body.name }, { $push: { sounds: req.body.sound } });
-            res.status(200).json(addsong);
+            // const addsong = await db.collection('purchasers').update({ name: req.body.name }, { $push: { sounds: req.body.sound } });
+            // res.status(200).json(addsong);
+            res.status(200).json({ status: 200, message: "No Post Access" })
         }
         else if (req.method === "GET") {
             const user = await db.collection('purchasers').findOne({ name: req.query.name })
             if (user) {
-                if (user.songs) {
-                    if (user.songs.length > 0) {
-                        let songs = []
-                        for (let x = 0; x < user.songs.length; x++) {
-                            const song = await db.collection('songs').findOne({ _id: ObjectId(`${user.songs[x]}`) })
-                            songs.push(song)
+                if (user.sounds) {
+                    if (user.sounds.length > 0) {
+                        let sounds = []
+                        for (let x = 0; x < user.sounds.length; x++) {
+                            const sound = await db.collection('songs').findOne({ _id: ObjectId(`${user.sounds[x]}`) })
+                            sounds.push(sound)
                         }
-                        res.status(200).json({ status: 200, message: { songs: songs } })
+                        res.status(200).json({ status: 200, message: { songs: sounds } })
                     }
                     else
                         res.status(201).json({ status: 201, message: { songs: "No songs found" } })
