@@ -70,7 +70,7 @@ class playSound extends Component {
         .catch((error) => { 
             if (error.response) {
                 console.log(error.response)
-                //signIn()
+                signIn()
                 //this.props.router.push("/dashboard")
                 // console.log(error.response.data.message)
         }  else if (error.request) {
