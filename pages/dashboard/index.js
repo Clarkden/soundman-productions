@@ -174,10 +174,10 @@ export default function dashboard({ admins }) {
                     <div className='flex flex-col md:flex-row bg-white dark:bg-neutral-900 pb-20'>
                         <Sidebar admin={admin} />
                         <section className=' text-black dark:text-white w-full dark:bg-neutral-900 relative top-0'>
-                            <div className='px-5 w-full flex flex-row flex-wrap mt-10'>
+                            <div className='px-5 w-full flex flex-row flex-wrap mt-10 '>
 
                                 {!noSongs ?
-                                    <div className='rounded-lg bg-gray-100 dark:bg-gray-800 p-5  mx-auto'>
+                                    <div className='rounded-lg bg-gray-100 dark:bg-gray-800 p-5  mx-auto w-5/6 md:min-w-9/12'>
                                         <h1 className='font-bold md:text-lg mb-5 dark:text-white text-base'>Your Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
                                         <div className='flex flex-row flex-wrap justify-center md:justify-start md:gap-8'>
                                             {isLoaded && songs ? songs?.map((data) => (
