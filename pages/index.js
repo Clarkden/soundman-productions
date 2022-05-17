@@ -152,9 +152,9 @@ export default function Home({ }) {
           : null}
         <div className='flex flex-row min-w-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg items-center justify-between my-5 p-10'>
           <div className='flex flex-col justify-start'>
-            <h1 className='justify-self-end text-white text-3xl  text-center md:text-left md:text-4xl'>Find the perfect beat for you</h1>
-            <h2 className='text-white/75 text-2xl text-center my-4 md:m-0 md:text-left leading-tight'>Shop our seasoned inventory of sounds to see what fits</h2>
-            <a href="#main" className=' rounded-lg my-1 md:my-5 text-xl text-white text-center md:text-left'>Take a listen <FontAwesomeIcon icon={faCaretDown} size="sm" className='animate-bounce ml-2' /></a>
+            <h1 className='justify-self-end text-white text-2xl  text-center md:text-left md:text-4xl'>Find the perfect beat for you</h1>
+            <h2 className='text-white/75 text-xl text-center my-4 md:m-0 md:text-left leading-tight'>Shop our seasoned inventory of sounds to see what fits</h2>
+            <a href="#main" className=' rounded-lg my-1 md:my-5 text-lg text-white text-center md:text-left'>Take a listen <FontAwesomeIcon icon={faCaretDown} size="sm" className='animate-bounce ml-2' /></a>
           </div>
           <div className='hidden md:block'>
             <img src="img/music-note.jpeg" className='h-40 rounded-lg'></img>

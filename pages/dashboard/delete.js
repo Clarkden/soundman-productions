@@ -66,24 +66,24 @@ export default function createSound({ admins }) {
 
         return (
             <>
-                {session && admin ? <div className='w-screen h-screen flex flex-row dark:bg-neutral-900'>
+                {session && admin ? <div className='flex flex-col md:flex-row bg-white dark:bg-neutral-900 pb-20'>
                     <Sidebar admin={admin} />
                     <div className='w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100 dark:bg-gray-800 dark:text-white'>
                         <h1 className='font-bold text-lg mb-5 dark:text-white'>All Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
-                        <div className='flex flex-row gap-5'>
+                        <div className='flex flex-row flex-wrap gap-5 justify-around md:justify-start'>
                             {songs ? songs?.map((data) => (
                                 <div>
                                     <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg max-w-cards' key={data._id}>
-                                                    <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-44 mb-3'>
-                                                        <h1 className='text-center'>{data.title}</h1>
-                                                    </div>
-                                                    <div className='w-44 h-44 min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
-                                                        <img src={data.image} className='rounded-md min-w-full'></img>
-                                                    </div>
-                                                    <div className='flex flex-row justify-between border-2 border-black/25 dark:border-white/25 rounded-lg w-44'>
-                                                    <button onClick={() => { fetch(`/api/products/delete/${data._id}`); window.location.reload() }} className="bg-red-400 w-44 rounded-md">Delete</button>
-                                                    </div>
-                                                </div>
+                                        <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-small-cards md:min-w-cards mb-3'>
+                                            <h1 className='text-center'>{data.title}</h1>
+                                        </div>
+                                        <div className='w-small-cards md:min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
+                                            <img src={data.image} className='rounded-md min-w-full'></img>
+                                        </div>
+                                        <div className='flex gap-2 items-baseline  rounded-lg justify-between drop-shadow-lg border-2 border-black/25 dark:border-white/25 p-1 w-small-cards md:min-w-cards flex-col md:flex-row'>
+                                            <button onClick={() => { fetch(`/api/products/delete/${data._id}`); window.location.reload() }} className="bg-red-400 min-w-full min-h-full rounded-md">Delete</button>
+                                        </div>
+                                    </div>
                                 </div>
 
                             )) : <a href="/dashboard/create" className=''>Create a product</a>}

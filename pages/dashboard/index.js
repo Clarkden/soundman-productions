@@ -171,7 +171,7 @@ export default function dashboard({ admins }) {
         <div className='w-full h-full '>
             {session ?
                 <div>
-                    <div className='flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-900 pb-20'>
+                    <div className='flex flex-col md:flex-row bg-white dark:bg-neutral-900 pb-20'>
                         <Sidebar admin={admin} />
                         <section className=' text-black dark:text-white w-full dark:bg-neutral-900 relative top-0'>
                             <div className='px-5 w-full flex flex-row flex-wrap mt-10'>
@@ -183,7 +183,7 @@ export default function dashboard({ admins }) {
                                             {isLoaded && songs ? songs?.map((data) => (
 
                                                 <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg max-w-cards' key={data._id}>
-                                                    <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-small-cards md:w-cards mb-3'>
+                                                    <div className=''>
                                                         <h1 className='text-center'>{data.title}</h1>
                                                     </div>
                                                     <div className='w-small-cards md:min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>

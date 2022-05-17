@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import '../styles/globals.css'
-import {SessionProvider} from "next-auth/react"
+import { SessionProvider } from "next-auth/react"
 
 // function MyApp({ Component, pageProps }) {
 
@@ -16,7 +16,9 @@ export default function App({
 }) {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <div className='bg-white dark:bg-neutral-900 min-h-screen'>
+        <Component {...pageProps} />
+      </div>
     </SessionProvider>
   )
 }

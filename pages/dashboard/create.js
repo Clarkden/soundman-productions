@@ -21,10 +21,10 @@ export default function createSound({ admins }) {
     if (admin) {
 
       return (
-        <div className='w-screen h-screen flex flex-row dark:bg-black'>
+        <div className='flex flex-col md:flex-row bg-white dark:bg-neutral-900 pb-20'>
           <Sidebar admin={admin} />
           <div className='flex justify-center items-center mx-auto'>
-            <form method="post" action="/api/products" className='flex flex-col gap-5  w-full justify-center items-center'>
+            <form method="post" action="/api/products" className='flex flex-col gap-5  w-full justify-center items-center mt-16'>
               <input type="text" id="title" name="title" placeholder='Title' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
               <input type="text" id="description" name="description" placeholder='Description' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
               <input type="text" id="image" name="image" placeholder='Image' className='border-2 border-neutral-600 rounded-lg p-1 w-72 dark:bg-neutral-900 dark:text-white' required></input>
