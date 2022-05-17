@@ -34,11 +34,10 @@ async function CreateStripeSession(req, res) {
       success_url: redirectURL + '?status=success',
       cancel_url: redirectURL + '?status=cancel',
       metadata: {
-        name: activeSession.user.name,
-        email: activeSession.user.email,
+        // name: activeSession.user.name,
+        email: activeSession.user._id,
         sound: item.id
       },
-      client_reference_id: activeSession.user.email
     });
     
     res.json({ id: session.id });

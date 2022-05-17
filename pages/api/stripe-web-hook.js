@@ -40,6 +40,7 @@ const handler = async (req, res) => {
             await db.collection('orders').insertOne(session);
 
             const purchaser = await db.collection('purchasers').findOne({email: session.metadata.email})
+            console.log(purchaser)
             if(purchaser != undefined){
                 await db.collection('purchasers').updateOne({_id: purchaser._id}, {$push :{sounds: session.metadata.sound}})
             }else{
