@@ -168,7 +168,7 @@ export default function Home({ }) {
               {isLoaded ? songs?.map((data) => (
                 // border-2 border-gray-300 dark:border-gray-700
                 <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg ' key={data._id}>
-                  <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-small-cards md:w-cards mb-3'>
+                  <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-small-cards md:min-w-cards mb-3'>
                     <h1 className='text-center'>{data.title}</h1>
                   </div>
                   <div className='w-small-cards md:min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
