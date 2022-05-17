@@ -177,9 +177,9 @@ export default function dashboard({ admins }) {
                             <div className='px-5 w-full flex flex-row flex-wrap mt-10'>
 
                                 {!noSongs ?
-                                    <div className='rounded-lg bg-gray-100 dark:bg-gray-800 p-5 w-11/12 mx-auto'>
+                                    <div className='rounded-lg bg-gray-100 dark:bg-gray-800 p-5  mx-auto'>
                                         <h1 className='font-bold md:text-lg mb-5 dark:text-white text-base'>Your Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
-                                        <div className='flex flex-row flex-wrap gap-8'>
+                                        <div className='flex flex-row flex-wrap justify-center md:justify-start md:gap-8'>
                                             {isLoaded && songs ? songs?.map((data) => (
 
                                                 <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg max-w-cards' key={data._id}>

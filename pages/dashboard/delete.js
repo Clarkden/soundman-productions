@@ -68,11 +68,11 @@ export default function createSound({ admins }) {
             <>
                 {session && admin ? <div className='flex flex-col md:flex-row bg-white dark:bg-neutral-900 pb-20'>
                     <Sidebar admin={admin} />
-                    <div className='w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100 dark:bg-gray-800 dark:text-white'>
+                    <div className='w-5/6 md:w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100 dark:bg-gray-800 dark:text-white'>
                         <h1 className='font-bold text-lg mb-5 dark:text-white'>All Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
                         <div className='flex flex-row flex-wrap gap-1 md:gap-5 justify-around md:justify-start'>
                             {songs ? songs?.map((data) => (
-                                <div>
+                                <div key={data._id}>
                                     <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg max-w-cards' key={data._id}>
                                         <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-small-cards md:min-w-cards mb-3'>
                                             <h1 className='text-center'>{data.title}</h1>
