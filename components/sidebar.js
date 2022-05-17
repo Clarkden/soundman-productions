@@ -3,7 +3,7 @@
 import React from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faDollarSign, faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function sidebar({ admin }) {
@@ -53,6 +53,12 @@ export default function sidebar({ admin }) {
                                         <a href="/dashboard/delete" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                             <FontAwesomeIcon icon={faMinusCircle} className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
                                             <span className="flex-1 ml-3 whitespace-nowrap">Delete</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/dashboard/orders" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                            <FontAwesomeIcon icon={faDollarSign} className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                                            <span className="flex-1 ml-3 whitespace-nowrap">Orders</span>
                                         </a>
                                     </li>
                                 </>
