@@ -73,7 +73,7 @@ export default function createSound({ admins }) {
 
         return (
             <>
-                {session && admin ? <div className='w-screen h-fit min-h-screen flex flex-row dark:bg-neutral-900 pb-20'>
+                {session && admin ? <div className='flex flex-col md:flex-row bg-white dark:bg-neutral-900 pb-20 '>
                     <Sidebar admin={admin} />
                     <div className='w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100 dark:bg-gray-800 dark:text-white'>
                         <div className='flex justify-between'>

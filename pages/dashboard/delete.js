@@ -70,7 +70,7 @@ export default function createSound({ admins }) {
                     <Sidebar admin={admin} />
                     <div className='w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100 dark:bg-gray-800 dark:text-white'>
                         <h1 className='font-bold text-lg mb-5 dark:text-white'>All Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
-                        <div className='flex flex-row flex-wrap gap-5 justify-around md:justify-start'>
+                        <div className='flex flex-row flex-wrap gap-1 md:gap-5 justify-around md:justify-start'>
                             {songs ? songs?.map((data) => (
                                 <div>
                                     <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg max-w-cards' key={data._id}>

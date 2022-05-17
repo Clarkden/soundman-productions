@@ -8,11 +8,11 @@ module.exports = {
       minWidth:{
       "cards" : "176px",
       "dasbhoard-card" : "200px",
-      "small-cards" : "134px"
+      "small-cards" : "128px"
     },
     maxWidth:{
       "cards" : "176px",
-      "small-cards" : "134px"
+      "small-cards" : "128px"
     },
     width:{
       "small-cards" : "128px",
