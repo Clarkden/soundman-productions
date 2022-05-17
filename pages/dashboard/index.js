@@ -52,7 +52,7 @@ export default function dashboard({ admins }) {
 
         async function fetchSongs() {
             if (session) {
-                fetch(`/api/userSounds/${session.user.name}`)
+                fetch(`/api/userSounds/${session.user.email}`)
                     .then(res => res.json())
                     .then(
                         (result) => {
@@ -218,7 +218,7 @@ export default function dashboard({ admins }) {
                 <div className='flex justify-center items-center h-screen w-screen bg-gradient-to-r from-purple-500 to-pink-500'>
                     <div className='border-2 border-white drop-shadow-lg h-fit w-fit rounded-lg p-3 flex flex-col justify-center items-center gap-4'>
                         <h1 className='font-bold text-white'>You must sign in</h1>
-                        <button onClick={() => router.push('/signin')} className="bg-green-400 rounded-lg p-2 w-64">Sign in</button>
+                        <button onClick={() => /*router.push('/signin')*/ signIn()} className="bg-green-400 rounded-lg p-2 w-64">Sign in</button>
                         <Link href="/"><span className="bg-blue-400 rounded-lg p-2 w-64 flex justify-center cursor-pointer">Back to shop</span></Link>
                     </div>
                 </div>

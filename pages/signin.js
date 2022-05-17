@@ -17,15 +17,19 @@ export default function SignIn({ providers }) {
                 <h1 className="font-bold text-black text-2xl mx-auto mb-10">Sign In</h1>
                 {Object.values(providers).map((provider) => (
                     <div key={provider.name} className="min-w-full">
-                        <button className="text-gray-800 bg-slate-400 p-2 rounded-lg w-full mx-auto" onClick={() => signIn(provider.id, {
-                            callbackUrl: '/'
-                        })}>Sign in with {provider.name} {
+ {
                                 {
-                                    'GitHub': <FontAwesomeIcon icon={faGithub} />,
-                                    'Twitter': <FontAwesomeIcon icon={faTwitter} />,
-
+                                    'GitHub': <button className="text-gray-800 bg-slate-400 p-2 rounded-lg w-full mx-auto" onClick={() => signIn(provider.id, {
+                                        callbackUrl: '/'
+                                    })}>Sign in with {provider.name}<FontAwesomeIcon icon={faGithub} className='mx-2'/></button>,
+                                    'Twitter': <button className="text-gray-800 bg-slate-400 p-2 rounded-lg w-full mx-auto" onClick={() => signIn(provider.id, {
+                                        callbackUrl: '/'
+                                    })}>Sign in with {provider.name}<FontAwesomeIcon icon={faTwitter} className='mx-2'/></button>,
+                                    'Email' : <h1 onClick={() => signIn(provider.id, {
+                                        callbackUrl: '/'
+                                    })}>Email</h1>
                                 }[provider.name]
-                            }</button>
+                            }
                     </div>
 
                 )

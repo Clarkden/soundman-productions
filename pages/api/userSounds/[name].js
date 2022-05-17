@@ -21,7 +21,7 @@ export default async function handler(req, res) {
             res.status(200).json({ status: 200, message: "No Post Access" })
         }
         else if (req.method === "GET") {
-            const user = await db.collection('purchasers').findOne({ name: req.query.name })
+            const user = await db.collection('purchasers').findOne({ email: req.query.email })
             if (user) {
                 if (user.sounds) {
                     if (user.sounds.length > 0) {
