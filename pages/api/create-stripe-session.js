@@ -36,7 +36,7 @@ async function CreateStripeSession(req, res) {
       metadata: {
         images: item.image,
       },
-      client_reference_id: activeSession.user.email
+      // client_reference_id: activeSession.user.email
     });
     
     res.json({ id: session.id });
