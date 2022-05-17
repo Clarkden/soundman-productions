@@ -92,9 +92,9 @@ class playSound extends Component {
         return (
             <div>
                 {/* border-2 border-gray-300 dark:border-gray-700  flex flex-row justify-between*/}
-                <div className='flex gap-2 items-baseline  rounded-lg px-2 justify-between drop-shadow-lg border-2 border-black/25 dark:border-white/25 p-2'>
-                    <div><h1 className=''>{this.props.product.title}</h1></div>
-                    <div className='flex gap-2'>
+                <div className='flex gap-2 items-baseline  rounded-lg px-2 justify-between drop-shadow-lg border-2 border-black/25 dark:border-white/25 p-2 w-small-cards md:min-w-cards flex-col md:flex-row'>
+                    {/* <div className='w-full md:w-fit flex justify-center md:'><h1 className='text-sm md:text-base'>{this.props.product.title}</h1></div> */}
+                    <div className='flex justify-between w-full gap-2'>
                         <button onClick={() => {this.createCheckOutSession(); }} className='text-gray-500 dark:text-red/75'><FontAwesomeIcon icon={faShoppingBag} className="text-green-500 dark:text-green-300  hover:scale-125 transition" /></button>
                         <a onClick={() => { this.setSound(this.audio.source); }} className="hover:cursor-pointer">
                             {this.state.displayPlayButton ? <FontAwesomeIcon icon={faPlayCircle} size="lg" className='text-red-500 hover:scale-125 transition' /> : <FontAwesomeIcon icon={faStopCircle} size="lg" className='text-yellow-500 hover:scale-125 transition' />}

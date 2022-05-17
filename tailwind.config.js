@@ -7,12 +7,15 @@ module.exports = {
     extend: {
       minWidth:{
       "cards" : "176px",
-      "dasbhoard-card" : "200px"
+      "dasbhoard-card" : "200px",
+      "small-cards" : "134px"
     },
     maxWidth:{
-      "cards" : "176px"
+      "cards" : "176px",
+      "small-cards" : "134px"
     },
     width:{
+      "small-cards" : "128px",
       "dasbhoard-card" : "200px"
     },
     height:{

@@ -135,7 +135,7 @@ export default function Home({ }) {
 
 
   return (
-    <div className='h-fit bg-gray-100 dark:bg-slate-900'>
+    <div className='h-full bg-gray-100 dark:bg-neutral-900'>
       <Head>
         <title>Soundman Productions</title>
         <meta property="og:title" content="Harambe Productions"></meta>
@@ -152,11 +152,11 @@ export default function Home({ }) {
           : null}
         <div className='flex flex-row min-w-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg items-center justify-between my-5 p-10'>
           <div className='flex flex-col justify-start'>
-            <h1 className='justify-self-end text-white text-4xl'>Find the perfect beat for you</h1>
-            <h2 className='text-white/75 text-2xl'>Shop our seasoned inventory of sounds to see what fits</h2>
-            <a href="#main" className=' rounded-lg my-5 text-xl text-white'>Take a listen <FontAwesomeIcon icon={faCaretDown} size="sm" className='animate-bounce ml-2' /></a>
+            <h1 className='justify-self-end text-white text-3xl  text-center md:text-left md:text-4xl'>Find the perfect beat for you</h1>
+            <h2 className='text-white/75 text-2xl text-center my-4 md:m-0 md:text-left leading-tight'>Shop our seasoned inventory of sounds to see what fits</h2>
+            <a href="#main" className=' rounded-lg my-1 md:my-5 text-xl text-white text-center md:text-left'>Take a listen <FontAwesomeIcon icon={faCaretDown} size="sm" className='animate-bounce ml-2' /></a>
           </div>
-          <div>
+          <div className='hidden md:block'>
             <img src="img/music-note.jpeg" className='h-40 rounded-lg'></img>
           </div>
         </div>
@@ -164,11 +164,14 @@ export default function Home({ }) {
         <section id="main" className='w-full h-fit'>
           <div id="popular" className=' text-black dark:text-white my-10'>
             {/* <h1 className='text-2xl mb-5 font-bold'>Popular Tracks</h1> */}
-            <div id="popular-cards" className='flex flex-row flex-wrap gap-10 overflow-scroll py-5'>
+            <div id="popular-cards" className='flex flex-row flex-wrap gap-10 overflow-scroll py-5 justify-around md:justify-start'>
               {isLoaded ? songs?.map((data) => (
                 // border-2 border-gray-300 dark:border-gray-700
                 <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg ' key={data._id}>
-                  <div className='w-44 h-44 min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
+                  <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-small-cards md:w-cards mb-3'>
+                    <h1 className='text-center'>{data.title}</h1>
+                  </div>
+                  <div className='w-small-cards md:min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
                     <img src={data.image} className='rounded-md min-w-full'></img>
                   </div>
                   <ProductInteractions passedFunction={() => setPlayingSound(!PlayingSound)} soundPlaying={PlayingSound} changeState={changeState} addObject={addObject} audio={audio} product={data} />

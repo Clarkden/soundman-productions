@@ -37,7 +37,7 @@ export default class playSound extends Component {
 
     render() {
         return (
-            <div className='w-full flex justify-between items-center p-1 px-3'>
+            <div className='w-full flex justify-between items-center px-2'>
                 <div>
                     <a onClick={() => { this.setSound(this.audio.source); }} className="hover:cursor-pointer">
                         {this.state.displayPlayButton ? <FontAwesomeIcon icon={faPlay} className='text-green-300 transition-all text-lg hover:text-xl' /> : <FontAwesomeIcon icon={faStop} className='text-red-300 transition-all text-lg hover:text-xl' />}
