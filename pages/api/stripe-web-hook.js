@@ -39,11 +39,11 @@ const handler = async (req, res) => {
             const db = client.db("soundmanproductions");
             await db.collection('orders').insertOne(session);
 
-            const purchaser = await db.collection('purchasers').findOne({name: session.data.metadata.name})
+            const purchaser = await db.collection('purchasers').findOne({name: session.metadata.name})
             if(purchaser != undefined){
-                await db.collection('purchasers').update(purchaser._id, { songs: {$push :{song: session.metadata.sound}}})
+                await db.collection('purchasers').update(purchaser._id, {$push :{sounds: session.metadata.sound}})
             }else{
-                await db.collection('purchasers').insertOne({name: session.data.metadata.name, songs: {song: session.data.metadata.sound}})
+                await db.collection('purchasers').insertOne({name: session.metadata.name, sounds: [session.metadata.sound]})
             }
 
             res.json({ received: true });
