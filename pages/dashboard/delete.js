@@ -66,9 +66,9 @@ export default function createSound({ admins }) {
 
         return (
             <>
-                {session && admin ? <div className='w-screen h-screen flex flex-row dark:bg-black'>
+                {session && admin ? <div className='w-screen h-screen flex flex-row dark:bg-neutral-900'>
                     <Sidebar admin={admin} />
-                    <div className='w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100'>
+                    <div className='w-9/12  mx-auto h-fit rounded-lg justify-start items-start p-4 mt-10 gap-5 bg-gray-100 dark:bg-gray-800 dark:text-white'>
                         <h1 className='font-bold text-lg mb-5 dark:text-white'>All Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
                         <div className='flex flex-row gap-5'>
                             {songs ? songs?.map((data) => (

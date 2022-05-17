@@ -62,7 +62,6 @@ class playSound extends Component {
         await axios.post('/api/create-stripe-session', {
             item: this.product,
         }).then((response) => {
-            console.log(response)
             stripe.redirectToCheckout({
                 sessionId: response.data.id,
             });

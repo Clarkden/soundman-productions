@@ -34,10 +34,10 @@ const handler = async (req, res) => {
             const session = stripeEvent.data.object;
             console.log('payment success', session);
             // Do something here on payment success, like update order etc.        }
-            
-            let client = await clientPromise;
-            const db = client.db("soundmanproductions");
-            await db.collection('orders').insertOne(session);
+
+            // let client = await clientPromise;
+            // const db = client.db("soundmanproductions");
+            // await db.collection('orders').insertOne(session);
 
             res.json({ received: true });
         } else {
