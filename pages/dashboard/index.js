@@ -177,19 +177,19 @@ export default function dashboard({ admins }) {
                             <div className='px-5 w-full flex flex-row flex-wrap mt-10 '>
 
                                 {!noSongs ?
-                                    <div className='rounded-lg bg-gray-100 dark:bg-gray-800 p-5  mx-auto w-5/6 md:min-w-9/12'>
-                                        <h1 className='font-bold md:text-lg mb-5 dark:text-white text-base'>Your Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
-                                        <div className='flex flex-row flex-wrap justify-center md:justify-start md:gap-8'>
+                                    <div className='rounded-lg bg-gray-100 dark:bg-gray-800 p-2  mx-auto w-5/6 md:min-w-9/12'>
+                                        <h1 className='font-bold md:text-lg mb-5 ml-3 dark:text-white text-base'>Your Sounds <span className='mx-'><FontAwesomeIcon icon={faMusic} /></span> </h1>
+                                        <div className='flex flex-row flex-wrap justify-around md:justify-start md:gap-8'>
                                             {isLoaded && songs ? songs?.map((data) => (
 
-                                                <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg max-w-cards' key={data._id}>
-                                                    <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 w-small-cards md:min-w-cards mb-3'>
+                                                <div className='rounded-lg  p-2 flex flex-col justify-around drop-shadow-lg w-6/12' key={data._id}>
+                                                    <div className='border-2 border-black/25 dark:border-white/25 rounded-lg p-1 min-w-full md:min-w-cards mb-3'>
                                                         <h1 className='text-sm md:text-base text-center'>{data.title}</h1>
                                                     </div>
-                                                    <div className='w-small-cards md:min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
+                                                    <div className='min-w-6/12 md:min-w-cards mb-4 overflow-hidden flex flex-col justify-center rounded-lg p-1 drop-shadow-lg border-2 border-black/25 dark:border-white/25'>
                                                         <img src={data.image} className='rounded-md min-w-full'></img>
                                                     </div>
-                                                    <div className='flex gap-2 items-baseline  rounded-lg px-2 justify-between drop-shadow-lg border-2 border-black/25 dark:border-white/25 p-1 w-small-cards md:min-w-cards flex-col md:flex-row'>
+                                                    <div className='flex gap-2 items-baseline  rounded-lg px-2 justify-between drop-shadow-lg border-2 border-black/25 dark:border-white/25 p-1 min-w-6/12 md:min-w-cards flex-col md:flex-row'>
                                                         <SoundButton passedFunction={setPlayingSound} soundPlaying={PlayingSound} changeState={changeState} addObject={addObject} audio={audio} id={data.title} audioSource={data.productionSound} />
                                                     </div>
                                                 </div>
